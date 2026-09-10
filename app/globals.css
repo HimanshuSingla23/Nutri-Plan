@@ -1,0 +1,304 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 33% 98%;
+    --foreground: 20 14% 10%;
+    --animation-iteration: infinite;
+  }
+
+  body {
+    @apply bg-[#FDFBF7] text-stone-800 font-sans antialiased selection:bg-emerald-500 selection:text-white min-h-screen flex flex-col;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tight text-stone-900;
+  }
+}
+
+@layer utilities {
+  /* Custom glassmorphism and card tokens */
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-md border border-stone-200/70 shadow-soft;
+  }
+
+  .glass-card-hover {
+    @apply transition-all duration-300 hover:shadow-soft-lg hover:border-emerald-200 hover:-translate-y-0.5;
+  }
+
+  .badge-gradient {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  }
+
+  .hero-gradient {
+    background: radial-gradient(circle at top right, rgba(209, 250, 229, 0.5), transparent 60%),
+                radial-gradient(circle at bottom left, rgba(254, 243, 199, 0.4), transparent 50%);
+  }
+
+  /* Custom scrollbar for planner & pantry */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #f5f5f4;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #d6d3d1;
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #a8a29e;
+  }
+}
+
+/* Print styling for planner and grocery export */
+@media print {
+  nav, .no-print, button:not(.print-include) {
+    display: none !important;
+  }
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  .shadow-soft, .shadow-md, .shadow-lg {
+    box-shadow: none !important;
+    border: 1px solid #ddd !important;
+  }
+}
+
+/* Cosmic Parallax Background Animations & Styles */
+@keyframes animStar {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-2000px);
+  }
+}
+
+@keyframes animGravity {
+  0% {
+    transform: translateY(-26px);
+    opacity: 0;
+  }
+  30%, 80% {
+    letter-spacing: 40px;
+    padding-left: 40px;
+    transform: translateY(0px);
+    opacity: 1;
+  }
+  92%, 100% {
+    letter-spacing: 35px;
+    padding-left: 35px;
+    transform: translateY(-4px);
+    opacity: 0;
+  }
+}
+
+@keyframes animDont {
+  0%, 15% {
+    transform: translateY(-26px);
+    opacity: 0;
+  }
+  35%, 80% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+  92%, 100% {
+    transform: translateY(-4px);
+    opacity: 0;
+  }
+}
+
+@keyframes animLet {
+  0%, 25% {
+    transform: translateY(-26px);
+    opacity: 0;
+  }
+  45%, 80% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+  92%, 100% {
+    transform: translateY(-4px);
+    opacity: 0;
+  }
+}
+
+@keyframes animGo {
+  0%, 35% {
+    transform: translateY(-26px);
+    opacity: 0;
+  }
+  55%, 80% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+  92%, 100% {
+    transform: translateY(-4px);
+    opacity: 0;
+  }
+}
+
+.cosmic-parallax-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cosmic-stars,
+#stars {
+  width: 1px;
+  height: 1px;
+  background: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: animStar 50s linear var(--animation-iteration, infinite);
+}
+
+.cosmic-stars::after,
+#stars::after {
+  content: " ";
+  position: absolute;
+  top: 2000px;
+  width: 1px;
+  height: 1px;
+  background: transparent;
+  box-shadow: inherit;
+}
+
+.cosmic-stars-medium,
+#stars2 {
+  width: 2px;
+  height: 2px;
+  background: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: animStar 100s linear var(--animation-iteration, infinite);
+}
+
+.cosmic-stars-medium::after,
+#stars2::after {
+  content: " ";
+  position: absolute;
+  top: 2000px;
+  width: 2px;
+  height: 2px;
+  background: transparent;
+  box-shadow: inherit;
+}
+
+.cosmic-stars-large,
+#stars3 {
+  width: 3px;
+  height: 3px;
+  background: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: animStar 150s linear var(--animation-iteration, infinite);
+}
+
+.cosmic-stars-large::after,
+#stars3::after {
+  content: " ";
+  position: absolute;
+  top: 2000px;
+  width: 3px;
+  height: 3px;
+  background: transparent;
+  box-shadow: inherit;
+}
+
+#horizon {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 115px;
+  background-image: radial-gradient(ellipse at bottom, #74889b 0%, #000 70%);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  pointer-events: none;
+}
+
+#horizon .glow {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  background: radial-gradient(ellipse at bottom, rgba(162, 197, 230, 0.4) 0%, transparent 70%);
+}
+
+#earth {
+  position: absolute;
+  bottom: -120px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1200px;
+  height: 250px;
+  border-radius: 50%;
+  background: #000;
+  box-shadow: 0 0 50px rgba(116, 136, 155, 0.4);
+  pointer-events: none;
+}
+
+#title {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  text-align: center;
+  transform: translateY(-50%);
+  color: #FFF;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: 300;
+  font-size: 50px;
+  letter-spacing: 10px;
+  margin-top: -60px;
+  animation: animGravity 6s cubic-bezier(0, 0, 0.2, 1) var(--animation-iteration, infinite);
+}
+
+#subtitle {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  text-align: center;
+  transform: translateY(-50%);
+  color: rgba(255, 255, 255, 0.75);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: 2px;
+  margin-top: 30px;
+}
+
+.subtitle-part-1 {
+  display: inline-block;
+  animation: animDont 6s cubic-bezier(0, 0, 0.2, 1) var(--animation-iteration, infinite);
+}
+
+.subtitle-part-2 {
+  display: inline-block;
+  animation: animLet 6s cubic-bezier(0, 0, 0.2, 1) var(--animation-iteration, infinite);
+}
+
+.subtitle-part-3 {
+  display: inline-block;
+  animation: animGo 6s cubic-bezier(0, 0, 0.2, 1) var(--animation-iteration, infinite);
+}
+
+
