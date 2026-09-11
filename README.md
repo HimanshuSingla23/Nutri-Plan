@@ -6,7 +6,17 @@ It connects weekly meal scheduling with recipe discovery, shelf-life monitoring 
 
 ---
 
-## Screenshots
+## Demo & Screenshots
+
+### 📹 Demo Video
+
+<div align="center">
+  <video src="screenshots/demo.mp4" controls width="100%" poster="screenshots/dashboard.png">
+    Your browser does not support the video tag. View the demo video directly at <a href="screenshots/demo.mp4">screenshots/demo.mp4</a>.
+  </video>
+</div>
+
+### 📸 Application Screenshots
 
 | **Dashboard Overview** | **Weekly Meal Planner** |
 |:---:|:---:|
