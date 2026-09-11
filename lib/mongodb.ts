@@ -1,4 +1,12 @@
+import dns from "dns";
 import mongoose from "mongoose";
+
+// Resolve querySrv EREFUSED issues on networks/ISPs that fail to resolve SRV records
+try {
+  dns.setServers(["8.8.8.8", "8.8.4.4"]);
+} catch {
+  // Graceful fallback if custom DNS servers cannot be set
+}
 
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/nutriplan";
 
