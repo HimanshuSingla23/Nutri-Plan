@@ -6,6 +6,22 @@ It connects weekly meal scheduling with recipe discovery, shelf-life monitoring 
 
 ---
 
+## Screenshots
+
+| **Dashboard Overview** | **Weekly Meal Planner** |
+|:---:|:---:|
+| ![Dashboard Overview](screenshots/dashboard.png) | ![Weekly Meal Planner](screenshots/meal-planner.png) |
+
+| **Recipe Discovery & Kitchen** | **Pantry & Shelf-Life Tracker** |
+|:---:|:---:|
+| ![Recipe Discovery](screenshots/recipes.png) | ![Pantry Tracker](screenshots/pantry.png) |
+
+| **Automated Grocery List** | **Recipe Details & Cooking Modal** |
+|:---:|:---:|
+| ![Automated Grocery List](screenshots/grocery.png) | ![Recipe Details Modal](screenshots/recipe-modal.png) |
+
+---
+
 ## Core Features
 
 ### 1. Weekly Meal Planner
